@@ -1,2 +1,2 @@
 # GhibliMovies
-Repositório criado para avaliação da qualidade do código criado para o processo seletivo da empresa STAPAR
+Repositório criado para avaliação da qualidade do código com fins de processo seletivo para atuação na empresa STAPAR
