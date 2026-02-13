@@ -13,8 +13,8 @@ struct Film: Codable, Identifiable {
     let id: String
     let title: String
     let originalTitle: String
-    let image: URL
-    let movieBanner: URL
+    let image: String
+    let movieBanner: String
     let description: String
     let director: String
     let producer: String
