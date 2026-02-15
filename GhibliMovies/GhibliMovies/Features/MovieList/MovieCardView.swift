@@ -12,13 +12,13 @@ struct MovieCardView: View {
     let movie: Film
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             AsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()
                     .scaledToFit()
             } placeholder: {
-                Color.gray
+                ProgressView()
             }
             .frame(height: 200)
             .cornerRadius(12)

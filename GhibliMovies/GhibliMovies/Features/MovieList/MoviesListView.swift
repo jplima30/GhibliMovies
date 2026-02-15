@@ -11,15 +11,27 @@ struct MoviesListView: View {
     
     @StateObject var viewModel = MoviesListViewModel()
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationStack {
-            List(viewModel.films) { film in
-                Text(film.title)
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(viewModel.films) { film in
+                        MovieCardView(movie: film)
+                        
+                    }
+                    .navigationTitle("Ghibli Movies")
+                    .padding()
+                }
             }
-            .navigationTitle("Ghibli Movies")
             .task {
                 await viewModel.loadMovies()
             }
+            
         }
     }
 }
