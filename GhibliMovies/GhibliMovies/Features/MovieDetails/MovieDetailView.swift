@@ -13,31 +13,25 @@ struct MovieDetailView: View {
     
     var body: some View {
         ScrollView {
-            // Esta VStack NÃO tem padding lateral para o banner encostar nas bordas! 🖼️
+           
             VStack(alignment: .leading, spacing: 20) {
                 
-                // 1. Banner (Ocupa a largura total)
                 AsyncImage(url: URL(string: movie.movieBanner)) { image in
                     image
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
                 } placeholder: {
                     ProgressView()
                 }
                 .frame(height: 250)
                 .clipped()
-
-                // 2. Grupo de Conteúdo (Aqui aplicamos o padding para TODOS os textos) 📝
                 VStack(alignment: .leading, spacing: 12) {
                     Text(movie.title)
                         .font(.largeTitle)
                         .bold()
-                    
                     Text(movie.originalTitle)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                    
-                    // Agora a HStack técnica está no mesmo grupo e terá o mesmo alinhamento! 📊
                     HStack {
                         Text("\(movie.rtScore)%")
                         Divider().frame(height: 20)
@@ -47,8 +41,26 @@ struct MovieDetailView: View {
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    Text("Sinopse")
+                        .font(.title3)
+                        .bold()
+                        .padding(.top, 8)
+                    Text(movie.description)
+                        .font(.body)
+                    Text("Diretor")
+                        .font(.title3)
+                        .bold()
+                        .padding(.top, 8)
+                    Text(movie.director)
+                        .font(.body)
+                    Text("Producer")
+                        .font(.title3)
+                        .bold()
+                        .padding(.top, 8)
+                    Text(movie.producer)
+                        .font(.body)
                 }
-                .padding(.horizontal) // O "segredo" está aqui: só este bloco tem margem! 👈
+                .padding(.horizontal)
             }
         }
         .navigationTitle(movie.title)
