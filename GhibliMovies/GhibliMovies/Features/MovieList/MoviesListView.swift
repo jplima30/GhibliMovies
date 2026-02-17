@@ -21,11 +21,13 @@ struct MoviesListView: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.films) { film in
-                        MovieCardView(movie: film)
-                        
+                        NavigationLink(destination: MovieDetailView(movie: film)) {
+                            MovieCardView(movie: film)
+                        }
+                        .buttonStyle(PlainButtonStyle()) // Dica: remove o tom azulado padrão do link
+                        .navigationTitle("Ghibli Movies")
+                        .padding()
                     }
-                    .navigationTitle("Ghibli Movies")
-                    .padding()
                 }
             }
             .task {
