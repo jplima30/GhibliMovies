@@ -24,7 +24,7 @@ struct MoviesListView: View {
                         NavigationLink(destination: MovieDetailView(movie: film)) {
                             MovieCardView(movie: film)
                         }
-                        .buttonStyle(PlainButtonStyle()) // Dica: remove o tom azulado padrão do link
+                        .buttonStyle(PlainButtonStyle())
                         .navigationTitle("Ghibli Movies")
                         .padding()
                     }
