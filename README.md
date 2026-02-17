@@ -24,3 +24,4 @@ Identidade Visual: Exibição de artes e banners originais para facilitar a iden
 
 
 Experiência Conectada: Consumo de dados em tempo real, garantindo que as informações estejam sempre atualizadas. 
+
