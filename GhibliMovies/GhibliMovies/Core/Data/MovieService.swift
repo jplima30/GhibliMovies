@@ -26,7 +26,7 @@ class MovieService {
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
             throw MovieError.invalidResponse
         }
-          do {
+        do {
             let decoder = JSONDecoder()
             let films = try decoder.decode([Film].self, from: data)
             return films

@@ -21,14 +21,14 @@ struct Film: Codable, Identifiable {
     let releaseDate: String
     let runningTime: String
     let rtScore: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, title, image, description, director, producer
         
-                case originalTitle = "original_title"
-                case movieBanner = "movie_banner"
-                case releaseDate = "release_date"
-                case runningTime = "running_time"
-                case rtScore = "rt_score"
+        case originalTitle = "original_title"
+        case movieBanner = "movie_banner"
+        case releaseDate = "release_date"
+        case runningTime = "running_time"
+        case rtScore = "rt_score"
     }
 }

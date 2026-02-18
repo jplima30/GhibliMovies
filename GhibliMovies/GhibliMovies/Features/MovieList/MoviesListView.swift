@@ -1,39 +1,60 @@
-//
-//  MoviesListView.swift
-//  GhibliMovies
-//
-//  Created by Joao Paulo Lima Silva on 12/02/26.
-//
-
 import SwiftUI
 
 struct MoviesListView: View {
-    
     @StateObject var viewModel = MoviesListViewModel()
     
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(viewModel.films) { film in
-                        NavigationLink(destination: MovieDetailView(movie: film)) {
-                            MovieCardView(movie: film)
+            Group {
+                switch viewModel.state {
+                case .loading:
+                    ProgressView()
+                        .controlSize(.large)
+                    
+                case .success(let films):
+                    if films.isEmpty {
+                        Text("Nenhum filme encontrado")
+                            .font(.headline)
+                    } else {
+                        ScrollView {
+                            LazyVGrid(columns: columns) {
+                                ForEach(films) { film in
+                                    NavigationLink(destination: MovieDetailView(movie: film)) {
+                                        MovieCardView(movie: film)
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                    .padding()
+                                }
+                            }
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        .navigationTitle("Ghibli Movies")
-                        .padding()
+                        .refreshable {
+                            await viewModel.loadMovies()
+                        }
                     }
+                    
+                case .error(let message):
+                    VStack(spacing: 20) {
+                        Text(message)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                        Button(action: {
+                            Task {
+                                await viewModel.loadMovies()
+                            }
+                        }) {
+                            Label("Tentar Novamente", systemImage: "arrow.clockwise")
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                    .padding()
                 }
             }
-            .task {
-                await viewModel.loadMovies()
+            .navigationTitle("Ghibli Movies")
+            .onAppear {
+                Task { await viewModel.loadMovies() }
             }
-            
         }
     }
 }
