@@ -11,14 +11,27 @@ import Combine
 @MainActor
 class MoviesListViewModel: ObservableObject {
     
-    @Published var films: [Film] = []
+    enum ViewState {
+        case loading
+        case success([Film])
+        case error(String)
+        
+    }
+    
+    @Published var state: ViewState = .loading
     private let service = MovieService()
     
     func loadMovies() async {
+        self.state = .loading
         do {
-            self.films = try await service.fetchMovies()
+            let movies = try await service.fetchMovies()
+            self.state = .success(movies)
         } catch {
-            print("Ocorreu um erro: \(error)")
+            self.state = .error(error.localizedDescription)
+            
         }
     }
 }
+
+
+
