@@ -13,7 +13,7 @@ struct MovieDetailView: View {
     
     var body: some View {
         ScrollView {
-           
+            
             VStack(alignment: .leading, spacing: 20) {
                 
                 AsyncImage(url: URL(string: movie.movieBanner)) { image in
@@ -67,18 +67,18 @@ struct MovieDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-    #Preview {
-        MovieDetailView(movie: Film (
-            id: "1",
-            title: "Castle in the Sky",
-            originalTitle: "天空の城ラピュ",
-            image: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg",
-            movieBanner:"https://image.tmdb.org/t/p/w533_and_h300_bestv2/3cyjYtLWCBE1uvWINHFsFnE8LUK.jpg",
-            description: "Sinopse de teste",
-            director: "Hayao Miyazaki",
-            producer: "Isao Takahata",
-            releaseDate: "1986",
-            runningTime: "124",
-            rtScore: "95"
-        ))
-    }
+#Preview {
+    MovieDetailView(movie: Film (
+        id: "1",
+        title: "Castle in the Sky",
+        originalTitle: "天空の城ラピュ",
+        image: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg",
+        movieBanner:"https://image.tmdb.org/t/p/w533_and_h300_bestv2/3cyjYtLWCBE1uvWINHFsFnE8LUK.jpg",
+        description: "Sinopse de teste",
+        director: "Hayao Miyazaki",
+        producer: "Isao Takahata",
+        releaseDate: "1986",
+        runningTime: "124",
+        rtScore: "95"
+    ))
+}
