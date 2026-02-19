@@ -3,7 +3,8 @@ import SwiftUI
 struct MoviesListView: View {
     @StateObject var viewModel = MoviesListViewModel()
     
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
+    let columns = [GridItem(.flexible(), spacing: 2), GridItem(.flexible())]
     
     var body: some View {
         NavigationStack {
@@ -19,14 +20,15 @@ struct MoviesListView: View {
                             .font(.headline)
                     } else {
                         ScrollView {
-                            LazyVGrid(columns: columns) {
+                            LazyVGrid(columns: columns, spacing: 20) {
                                 ForEach(films) { film in
                                     NavigationLink(destination: MovieDetailView(movie: film)) {
                                         MovieCardView(movie: film)
                                     }
                                     .buttonStyle(PlainButtonStyle())
-                                    .padding()
                                 }
+                                .padding(.horizontal, 12)
+                                .padding(.top, 20)
                             }
                         }
                         .refreshable {
