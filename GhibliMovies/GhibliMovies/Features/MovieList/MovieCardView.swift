@@ -16,20 +16,19 @@ struct MovieCardView: View {
             AsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
             } placeholder: {
                 ProgressView()
             }
-            .frame(height: 200)
             .cornerRadius(12)
-            
+            .clipped()
             Text(movie.title)
+                .bold()
+            Text("\(movie.releaseDate) - \(movie.runningTime)m")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+            
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(12)
-        .shadow(radius: 5)
-        
     }
 }
 
