@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MoviesListView: View {
-    @StateObject var viewModel = MoviesListViewModel()
+    @StateObject var viewModel = MoviesListViewModel(service: MovieService())
     
     
     let columns = [GridItem(.flexible(), spacing: 2), GridItem(.flexible())]

@@ -13,7 +13,7 @@ enum MovieError: Error {
     case decodingError
 }
 
-class MovieService {
+class MovieService: MovieServiceProtocol {
     
     private let baseURL = "https://ghibliapi.vercel.app/films"
     
