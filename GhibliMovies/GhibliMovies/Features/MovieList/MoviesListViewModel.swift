@@ -11,15 +11,21 @@ import Combine
 @MainActor
 class MoviesListViewModel: ObservableObject {
     
+    @Published var movies: [Film] = []
+    private let service: MovieServiceProtocol
+    
+    init(service: MovieServiceProtocol) {
+        self.service = service
+    }
+    
     enum ViewState {
         case loading
         case success([Film])
         case error(String)
-        
+
     }
     
     @Published var state: ViewState = .loading
-    private let service = MovieService()
     
     func loadMovies() async {
         self.state = .loading
