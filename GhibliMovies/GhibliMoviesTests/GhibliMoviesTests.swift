@@ -3,7 +3,6 @@ import XCTest
 
 final class GhibliMoviesTests: XCTestCase {
     
-    // Colocamos o @MainActor apenas na função de teste
     @MainActor
     func test_loadMovies_shouldPopulateMoviesListWithSuccess() async throws {
         // Arrange: Criamos a ViewModel AQUI DENTRO (o Swift limpa a memória sozinho depois!)
@@ -24,15 +23,13 @@ final class GhibliMoviesTests: XCTestCase {
     
     @MainActor
     func test_loadMovies_shouldChangeStateToError() async {
-        // Arrange: Configuramos o mock para forçar uma falha
+        
         let mockService = MockMovieService()
         mockService.shouldReturnError = true
         let sut = MoviesListViewModel(service: mockService)
         
-        // Act: Tentamos carregar os filmes
         await sut.loadMovies()
         
-        // Assert: Verificamos se o estado mudou para erro e se temos uma mensagem
         if case .error(let mensagemDeErro) = sut.state {
             XCTAssertFalse(mensagemDeErro.isEmpty, "A mensagem de erro não deve estar vazia.")
         } else {
@@ -40,6 +37,18 @@ final class GhibliMoviesTests: XCTestCase {
         }
     }
     
-    
-    
+    @MainActor
+        func test_initialState_shouldBeLoading() async {
+            // Arrange: Criamos o mock e a ViewModel
+            let mockService = MockMovieService()
+            let sut = MoviesListViewModel(service: mockService)
+            
+            // Assert: Verificamos o estado ANTES de mandar carregar os filmes
+            if case .loading = sut.state {
+                // Se entrar aqui, o teste passa porque começou em loading!
+                XCTAssertTrue(true)
+            } else {
+                XCTFail("A ViewModel não começou no estado .loading como era esperado.")
+            }
+        }
 }
