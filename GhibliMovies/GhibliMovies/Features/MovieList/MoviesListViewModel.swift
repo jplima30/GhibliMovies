@@ -32,6 +32,7 @@ class MoviesListViewModel: ObservableObject {
         do {
             let movies = try await service.fetchMovies()
             self.state = .success(movies)
+            self.movies = movies
         } catch {
             self.state = .error(error.localizedDescription)
             
