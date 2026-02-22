@@ -21,4 +21,25 @@ final class GhibliMoviesTests: XCTestCase {
             XCTFail("O estado falhou ou continuou em loading.")
         }
     }
+    
+    @MainActor
+    func test_loadMovies_shouldChangeStateToError() async {
+        // Arrange: Configuramos o mock para forçar uma falha
+        let mockService = MockMovieService()
+        mockService.shouldReturnError = true
+        let sut = MoviesListViewModel(service: mockService)
+        
+        // Act: Tentamos carregar os filmes
+        await sut.loadMovies()
+        
+        // Assert: Verificamos se o estado mudou para erro e se temos uma mensagem
+        if case .error(let mensagemDeErro) = sut.state {
+            XCTAssertFalse(mensagemDeErro.isEmpty, "A mensagem de erro não deve estar vazia.")
+        } else {
+            XCTFail("A ViewModel não entrou no estado de erro como era esperado.")
+        }
+    }
+    
+    
+    
 }
