@@ -1,13 +1,20 @@
 # Ghibli Movies 🎬
 
-<p align="center">
-  <img src="Home.png" width="250" />
-  <img src="Detalhes.png" width="250" />
-</p>
-
 Um aplicativo iOS nativo desenvolvido para o Desafio Técnico, focado em exibir o catálogo de filmes do Studio Ghibli consumindo a [Studio Ghibli API](https://ghibliapi.vercel.app).
 
-## 📱 Funcionalidades
+## 📱 Visual do Projeto
+
+### 🎬 Catálogo e Interação
+A jornada do utilizador consiste na exploração do catálogo completo de obras do Studio Ghibli, com transições fluidas para os detalhes de cada filme e feedback visual claro em caso de falhas de rede.
+
+| Lista de Filmes | Detalhes da Obra |
+|:---:|:---:|
+| <img src="project_image/Home.png" width="200"> | <img src="project_image/Detalhes.png" width="200"> |
+| **Catálogo Assíncrono** | **Informações Detalhadas** |
+
+---
+
+## ⚙️ Funcionalidades
 * Listagem completa de filmes do Studio Ghibli.
 * Tela de detalhes com informações aprofundadas (diretor, produtor, ano de lançamento, descrição).
 * Tratamento de estados visuais (Loading, Success, Error com opção de Retry).
@@ -32,10 +39,4 @@ O desenvolvimento foi guiado pela criação de pequenas *Issues* no GitHub, gara
 * **Configuração Inicial (#1):** Criação da estrutura base do projeto, ativação dos testes unitários e definição da arquitetura de pastas (Features, Data, Models, Utils).
 * **Desenvolvimento da Interface Visual (#3 e #18):** Criação do componente `MovieCardView` com carregamento assíncrono de imagens (`AsyncImage`) e refinamento da hierarquia visual com metadados (ano e duração).
 * **Navegação e Detalhes (#8):** Implementação do fluxo de navegação (`NavigationLink`) e construção da tela `MovieDetailView` recebendo os dados diretamente da lista.
-* **Refatoração e Estados (#15 e #21):** Implementação do `ViewState` para gerir carregamento, sucesso e erros. Adição de funcionalidades de *Pull-to-Refresh* (`.refreshable`), tratamento de lista vazia e configuração correta do ponto de entrada do App.
-* **Arquitetura e Testes (#22):** Injeção de dependência via `MovieServiceProtocol`, criação do Mock e validação unitária completa dos estados da `MoviesListViewModel`.
-
-## 💻 Como executar o projeto
-1. Clone este repositório: `git clone [URL_DO_SEU_REPOSITORIO]`
-2. Abra o arquivo `.xcodeproj` no Xcode 16+.
-3. Selecione um simulador (ex: iPhone 15 Pro) e pressione `Cmd + R` para compilar e rodar.
+* **Refatoração e Estados (#15 e #21):** Implementação do `ViewState` para gerir carregamento, sucesso e erros. Adição de funcionalidades de *Pull-to-Refresh* (`.refreshable
