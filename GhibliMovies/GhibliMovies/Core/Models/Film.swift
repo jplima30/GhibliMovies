@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct Film: Codable, Identifiable {
     let id: String
     let title: String
