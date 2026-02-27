@@ -7,10 +7,10 @@ Um aplicativo iOS nativo desenvolvido para o Desafio Técnico, focado em exibir 
 ### 🎬 Catálogo e Interação
 A jornada do utilizador consiste na exploração do catálogo completo de obras do Studio Ghibli, com transições fluidas para os detalhes de cada filme e feedback visual claro em caso de falhas de rede.
 
-| Lista de Filmes | Detalhes da Obra |
-|:---:|:---:|
-| <img src="project_image/Home.png" width="200"> | <img src="project_image/Detalhes.png" width="200"> | 
-| **Catálogo Assíncrono** | **Informações Detalhadas** |
+| Lista de Filmes | Detalhes da Obra | Tratamento de Erros |
+|:---:|:---:|:---:|
+| <img src="project_image/Home.png" width="200"> | <img src="project_image/Detalhes.png" width="200"> | <img src="project_image/Erro.png" width="200"> |
+| **Catálogo Assíncrono** | **Informações Detalhadas** | **Feedback Visual (Retry)** |
 
 ---
 
