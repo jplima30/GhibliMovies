@@ -16,7 +16,7 @@ struct MovieDetailView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 
-                AsyncImage(url: URL(string: movie.movieBanner)) { image in
+                CachedAsyncImage(url: URL(string: movie.movieBanner)) { image in
                     image
                         .resizable()
                         .scaledToFit()
