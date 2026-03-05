@@ -42,6 +42,7 @@ O desenvolvimento foi guiado pela criação de Issues no GitHub para garantir ra
 * **Navegação e Detalhes:** [#8](https://github.com/jplima30/ghiblimovies/issues/8) - Fluxo de navegação e tela de detalhes.
 * **Refatoração e Estados:** [#15](https://github.com/jplima30/ghiblimovies/issues/15) e [#21](https://github.com/jplima30/ghiblimovies/issues/21) - ViewState, Pull-to-refresh e tratamento de erros.
 * **Arquitetura e Testes:** [#22](https://github.com/jplima30/ghiblimovies/issues/22) - Injeção de dependência e testes unitários da ViewModel.
+* **Arquitetura e Testes:** [#35](https://github.com/jplima30/ghiblimovies/issues/35) - Implementação do cache de imagens usando NSchache e cachedAsyncImage.
 
 ## 💻 Como executar o projeto
 1. Clone este repositório: `git clone https://github.com/jplima30/ghiblimovies.git`
