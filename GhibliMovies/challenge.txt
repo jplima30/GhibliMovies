@@ -1,0 +1,107 @@
+Desafio Técnico — iOS Developer
+Contexto
+Este desafio é o mesmo para candidatos Júnior, Pleno e Sênior.
+Não esperamos que todos implementem tudo. Avaliaremos principalmente:
+●​
+●​
+●​
+●​
+
+Clareza e organização do código
+Decisões técnicas
+Capacidade de explicar o que foi feito
+Qualidade geral da entrega dentro do escopo proposto
+
+Objetivo
+Desenvolver um aplicativo iOS que consuma a Studio Ghibli API e apresente uma lista de
+filmes com uma tela de detalhes.
+
+API
+●​ Base URL: https://ghibliapi.vercel.app
+●​ Endpoints principais:
+○​ GET /films — lista de filmes
+○​ GET /films/{id} — detalhes de um filme
+Documentação informal: a própria resposta JSON dos endpoints é suficiente para entender os
+campos.
+
+Escopo mínimo (obrigatório)
+O aplicativo deve conter:
+
+1. Tela de lista de filmes
+●​ Exibir uma lista com os filmes retornados pela API
+●​ Mostrar pelo menos:
+○​ Título do filme
+
+○​ Ano de lançamento (release_date)
+●​ A lista pode ser feita com UIKit ou SwiftUI
+
+2. Tela de detalhes do filme
+●​ Ao tocar em um filme, navegar para uma tela de detalhes
+●​ Exibir algumas informações adicionais, como:
+○​ Título
+○​ Descrição (description)
+○​ Diretor (director)
+○​ Produtor (producer)
+○​ Ano de lançamento
+
+3. Networking
+●​ Consumir a API remotamente
+●​ Tratar:
+○​ Estado de carregamento
+○​ Erro de requisição (mensagem simples é suficiente)
+
+4. Requisitos gerais
+●​ O app deve compilar e rodar
+●​ Código legível e organizado
+●​ Não é necessário foco em design pixel-perfect
+
+Extras opcionais (não obrigatórios)
+Esses itens não são exigidos, mas ajudam a demonstrar maior domínio técnico.
+Implemente apenas o que fizer sentido para você.
+
+UI / UX
+●​ Exibir o banner do filme (image ou movie_banner)
+●​ Melhorar layout e hierarquia visual
+●​ Estados de UI mais refinados (empty, retry, skeleton, etc.)
+
+Arquitetura / Código
+●​ Projeto em Swift 6 com Approachable Concurrency e Default Actor Isolation - Main Actor
+●​ Separação clara de responsabilidades (ex.: View / Model / Service)
+
+●​ Uso de async/await
+●​ Abstrações bem justificadas (protocolos, etc.)
+
+Qualidade
+●​ Cache simples de dados ou imagens
+●​ Tratamento mais robusto de erros
+●​ README explicando:
+○​ Arquitetura escolhida
+○​ Decisões técnicas
+○​ O que faria diferente com mais tempo
+
+O que não é necessário
+●​ Autenticação
+●​ Persistência local complexa
+●​ UI avançada ou animações elaboradas
+
+Entrega
+●​ Enviar o projeto via repositório Git (GitHub, GitLab, etc.)
+●​ Incluir instruções básicas para rodar o projeto
+●​ O projeto pode ser feito no seu próprio ritmo, mas evite soluções excessivamente
+grandes
+
+Avaliação
+Vamos considerar, entre outros pontos:
+●​
+●​
+●​
+●​
+●​
+
+Funcionalidade
+Organização e legibilidade do código
+Decisões técnicas
+Uso adequado das ferramentas da plataforma
+Capacidade de explicar o que foi feito e por quê
+
+
