@@ -13,7 +13,7 @@ struct MovieCardView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: movie.image)) { image in
+            CachedAsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()
                     .scaledToFill()
